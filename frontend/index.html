@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🅿️ Urban Parking Prediction</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🅿️</text></svg>">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <header>
+    <div class="header-left">
+      <span class="logo">🅿️</span>
+      <h1>Urban Parking Prediction</h1>
+    </div>
+    <div class="header-right">
+      <span class="badge" id="statusBadge">Connecting...</span>
+      <span id="clock"></span>
+    </div>
+  </header>
+
+  <nav>
+    <button class="tab active" data-tab="dashboard">📊 Dashboard</button>
+    <button class="tab" data-tab="zones">🅿️ Zones</button>
+    <button class="tab" data-tab="forecast">📈 Forecast</button>
+    <button class="tab" data-tab="history">🕐 History</button>
+    <button class="tab" data-tab="predict">🔮 Predict</button>
+  </nav>
+
+  <main>
+
+    <!-- DASHBOARD -->
+    <section id="tab-dashboard" class="tab-content active">
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">🅿️</div>
+          <div class="card-body">
+            <p class="card-label">Total Available</p>
+            <p class="card-value" id="totalAvailable">--</p>
+            <p class="card-unit">spots</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔴</div>
+          <div class="card-body">
+            <p class="card-label">Occupancy</p>
+            <p class="card-value" id="totalOccupancy">--</p>
+            <p class="card-unit">%</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏢</div>
+          <div class="card-body">
+            <p class="card-label">Total Capacity</p>
+            <p class="card-value" id="totalCapacity">--</p>
+            <p class="card-unit">spots</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">⏰</div>
+          <div class="card-body">
+            <p class="card-label">Peak Hour</p>
+            <p class="card-value" id="peakHour">--</p>
+            <p class="card-unit">:00</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">📅</div>
+          <div class="card-body">
+            <p class="card-label">Events Today</p>
+            <p class="card-value" id="eventCount">--</p>
+            <p class="card-unit">events</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">✅</div>
+          <div class="card-body">
+            <p class="card-label">Status</p>
+            <p class="card-value" id="overallStatus">--</p>
+            <p class="card-unit">overall</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hourly Pattern -->
+      <div class="chart-box">
+        <h2>Hourly Occupancy Pattern</h2>
+        <div class="chart-wrap">
+          <canvas id="patternChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Zone Overview -->
+      <div class="chart-box">
+        <h2>Zone Overview</h2>
+        <div class="chart-wrap">
+          <canvas id="zoneChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Train -->
+      <div class="chart-box">
+        <h2>🧠 Model Training</h2>
+        <p class="sub-text">
+          Train ML model to predict parking availability
+          for all 6 zones.
+        </p>
+        <button class="btn btn-primary" id="trainBtn" onclick="trainModel()">
+          🧠 Train Model
+        </button>
+        <p id="trainStatus" class="train-status"></p>
+      </div>
+    </section>
+
+    <!-- ZONES -->
+    <section id="tab-zones" class="tab-content">
+      <div class="forecast-header">
+        <h2>🅿️ Parking Zone Status</h2>
+        <button class="btn btn-primary" onclick="loadZones()">
+          🔄 Refresh
+        </button>
+      </div>
+      <div class="zones-grid" id="zonesGrid"></div>
+    </section>
+
+    <!-- FORECAST -->
+    <section id="tab-forecast" class="tab-content">
+      <div class="forecast-header">
+        <h2>24-Hour Parking Forecast</h2>
+        <button class="btn btn-primary" onclick="loadForecast()">
+          🔄 Refresh
+        </button>
+      </div>
+      <div class="chart-box">
+        <div class="chart-wrap">
+          <canvas id="forecastChart"></canvas>
+        </div>
+      </div>
+      <div class="table-box">
+        <table id="forecastTable">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Available Spots</th>
+              <th>Occupied Spots</th>
+              <th>Occupancy %</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- HISTORY -->
+    <section id="tab-history" class="tab-content">
+      <div class="forecast-header">
+        <h2>Parking History</h2>
+        <select id="hoursSelect" onchange="loadHistory()">
+          <option value="24">Last 24 hours</option>
+          <option value="48" selected>Last 48 hours</option>
+          <option value="72">Last 72 hours</option>
+          <option value="168">Last 7 days</option>
+        </select>
+      </div>
+      <div class="chart-box">
+        <div class="chart-wrap">
+          <canvas id="historyChart"></canvas>
+        </div>
+      </div>
+      <div class="table-box">
+        <table id="historyTable">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Available</th>
+              <th>Occupancy %</th>
+              <th>Weather</th>
+              <th>Event</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PREDICT -->
+    <section id="tab-predict" class="tab-content">
+      <div class="forecast-header">
+        <h2>🔮 Parking Predictor</h2>
+      </div>
+      <div class="predict-form">
+        <h3>Check Parking Availability</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>🕐 Hour (0-23)</label>
+            <input type="number" id="inp-hour" value="12" min="0" max="23"/>
+          </div>
+          <div class="form-group">
+            <label>📅 Day of Week</label>
+            <select id="inp-day">
+              <option value="0">Monday</option>
+              <option value="1">Tuesday</option>
+              <option value="2">Wednesday</option>
+              <option value="3">Thursday</option>
+              <option value="4">Friday</option>
+              <option value="5">Saturday</option>
+              <option value="6">Sunday</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>🌤️ Weather</label>
+            <select id="inp-weather">
+              <option value="0">Clear</option>
+              <option value="1">Rain</option>
+              <option value="2">Heavy Rain</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>🎪 Special Event</label>
+            <select id="inp-event">
+              <option value="0">No Event</option>
+              <option value="1">Event Happening</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="runPredict()">
+          🔮 Predict Availability
+        </button>
+      </div>
+
+      <div id="predictResults" style="display:none">
+        <div class="chart-box" style="margin-top:20px">
+          <h2>Predicted Zone Availability</h2>
+          <div class="chart-wrap">
+            <canvas id="predictChart"></canvas>
+          </div>
+        </div>
+        <div class="zones-grid" id="predictZonesGrid"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="chart.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
