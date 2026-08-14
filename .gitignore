@@ -1,0 +1,8 @@
+backend/data/
+backend/saved_model/
+__pycache__/
+*.pyc
+.env
+*.pkl
+.venv/
+chart.min.js
