@@ -10,11 +10,18 @@ from datetime import datetime, timedelta
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 
+# Fix paths for both local and Render deployment
 BACKEND_DIR  = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR     = os.path.dirname(BACKEND_DIR)
 FRONTEND_DIR = os.path.join(ROOT_DIR, "frontend")
 MODEL_FILE   = os.path.join(BACKEND_DIR, "saved_model", "parking_model.pkl")
 DATA_FILE    = os.path.join(BACKEND_DIR, "data", "parking.csv")
+
+# Debug paths
+print(f"BACKEND_DIR  : {BACKEND_DIR}")
+print(f"ROOT_DIR     : {ROOT_DIR}")
+print(f"FRONTEND_DIR : {FRONTEND_DIR}")
+print(f"Frontend exists: {os.path.exists(FRONTEND_DIR)}")
 
 sys.path.insert(0, BACKEND_DIR)
 
@@ -52,10 +59,15 @@ if not MODEL_READY:
 # ── Static ─────────────────────────────────
 @app.route("/")
 def index():
+    index_path = os.path.join(FRONTEND_DIR, "index.html")
+    print(f"Serving index from: {index_path}")
+    print(f"File exists: {os.path.exists(index_path)}")
     return send_from_directory(FRONTEND_DIR, "index.html")
 
 @app.route("/<path:fn>")
 def static_files(fn):
+    print(f"Serving static file: {fn}")
+    print(f"File exists: {os.path.exists(os.path.join(FRONTEND_DIR, fn))}")
     return send_from_directory(FRONTEND_DIR, fn)
 
 
