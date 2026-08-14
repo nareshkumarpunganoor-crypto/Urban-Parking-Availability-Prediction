@@ -31,31 +31,36 @@ The deployed application provides a dashboard for monitoring parking availabilit
 
 ### 🏠 Dashboard
 
-![Urban Parking Dashboard](images/dashboard.png)
+<img width="1879" height="893" alt="Screenshot 2026-08-14 213350" src="https://github.com/user-attachments/assets/d7571ab5-94ae-4470-a41d-fd3648e37b08" />
+
 
 The dashboard provides an overview of parking availability, occupancy, total capacity, peak hours, events, and overall parking status.
 
 ### 🅿️ Parking Zones
 
-![Parking Zones](images/zones.png)
+<img width="1884" height="880" alt="Screenshot 2026-08-14 213415" src="https://github.com/user-attachments/assets/15da530b-a654-4818-85b0-064656c153aa" />
+
 
 View the availability and occupancy status of different parking zones.
 
 ### 📈 Parking Forecast
 
-![Parking Forecast](images/forecast.png)
+<img width="1866" height="897" alt="Screenshot 2026-08-14 213444" src="https://github.com/user-attachments/assets/3a145c1d-16ab-406b-b190-cd6a64b100ef" />
+
 
 View the predicted parking availability for upcoming hours.
 
 ### 🕐 Parking History
 
-![Parking History](images/history.png)
+<img width="1846" height="882" alt="Screenshot 2026-08-14 213514" src="https://github.com/user-attachments/assets/aa68c9d9-d141-4fb8-835f-e57d67d5d073" />
+
 
 Analyze historical parking availability along with weather and event information.
 
 ### 🔮 Parking Predictor
 
-![Parking Predictor](images/predictor.png)
+<img width="1800" height="875" alt="Screenshot 2026-08-14 213555" src="https://github.com/user-attachments/assets/414cfdbe-c8d0-43df-a942-fc2835cde7ac" />
+
 
 Enter factors such as hour, day, weather, and special events to predict parking availability.
 
