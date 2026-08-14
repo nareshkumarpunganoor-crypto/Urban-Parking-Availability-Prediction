@@ -1,88 +1,198 @@
 # 🅿️ Urban Parking Availability Prediction
 
-An AI-powered **Urban Parking Availability Prediction System** that uses Deep Learning and data-driven analysis to predict parking-space availability and help users identify suitable parking areas more efficiently.
+<p align="center">
+
+**AI-Powered Smart Parking Prediction System**
+
+Predict parking availability, monitor occupancy, analyze parking zones, and forecast future parking demand using Machine Learning.
+
+</p>
+
+<p align="center">
+
+[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Urban%20Parking-success?style=for-the-badge)](https://urban-parking-availability-prediction.onrender.com)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge\&logo=github)](https://github.com/nareshkumarpunganoor-crypto/Urban-Parking-Availability-Prediction)
+
+</p>
+
+---
+
+## 🌐 Live Demo
+
+🚀 **Try the application here:**
+
+👉 https://urban-parking-availability-prediction.onrender.com
+
+The deployed application provides a dashboard for monitoring parking availability, viewing parking zones, checking forecasts, reviewing historical data, and predicting parking availability.
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Dashboard
+
+![Urban Parking Dashboard](images/dashboard.png)
+
+The dashboard provides an overview of parking availability, occupancy, total capacity, peak hours, events, and overall parking status.
+
+### 🅿️ Parking Zones
+
+![Parking Zones](images/zones.png)
+
+View the availability and occupancy status of different parking zones.
+
+### 📈 Parking Forecast
+
+![Parking Forecast](images/forecast.png)
+
+View the predicted parking availability for upcoming hours.
+
+### 🕐 Parking History
+
+![Parking History](images/history.png)
+
+Analyze historical parking availability along with weather and event information.
+
+### 🔮 Parking Predictor
+
+![Parking Predictor](images/predictor.png)
+
+Enter factors such as hour, day, weather, and special events to predict parking availability.
+
+> **Note:** Add your actual application screenshots to the `images` folder using the filenames shown above.
+
+---
 
 ## 📌 Project Overview
 
-Finding an available parking space in busy urban areas can be time-consuming and frustrating. Drivers often spend considerable time searching for vacant parking spaces, which contributes to traffic congestion, fuel consumption, and unnecessary emissions.
+Finding available parking in busy urban areas is a major challenge. Drivers may spend significant time searching for parking, resulting in increased traffic congestion, fuel consumption, and unnecessary emissions.
 
-**Urban Parking Availability Prediction** aims to address this problem by analyzing parking-related data and predicting the availability of parking spaces.
+**Urban Parking Availability Prediction** is a Machine Learning-based web application designed to predict parking availability and provide useful insights into parking occupancy.
 
-The system provides a user-friendly interface where parking availability information can be analyzed and presented through an interactive web application.
+The system analyzes factors such as:
+
+* 🕐 Time of day
+* 📅 Day of the week
+* 🌤️ Weather conditions
+* 🎪 Special events
+* 🅿️ Parking-zone information
+* 📊 Historical parking data
+
+The application then provides parking availability predictions and forecasts to support smarter parking decisions.
+
+---
 
 ## 🎯 Objectives
 
-* 🅿️ Predict parking-space availability.
-* 🚗 Reduce the time spent searching for parking.
-* 📊 Analyze historical and current parking-related data.
-* 🤖 Apply Deep Learning techniques to parking prediction.
-* 📉 Help reduce unnecessary traffic caused by parking searches.
-* 🌱 Contribute to smarter and more sustainable urban transportation.
+* Predict parking-space availability.
+* Monitor parking occupancy.
+* Analyze multiple parking zones.
+* Forecast future parking availability.
+* Identify peak parking hours.
+* Analyze the effect of weather and events.
+* Reduce the time spent searching for parking.
+* Support intelligent and sustainable urban transportation.
+
+---
 
 ## ✨ Key Features
 
-### 🔮 Parking Availability Prediction
+### 📊 Dashboard
 
-Predicts whether parking spaces are likely to be available based on available data.
+Provides a centralized view of the parking system, including:
 
-### 📊 Data Analysis
+* Total available spaces
+* Occupancy percentage
+* Total parking capacity
+* Peak hour
+* Events
+* Overall parking status
 
-Processes parking-related information to identify patterns and trends.
+The live application currently exposes these dashboard metrics.
 
-### 🌐 Web-Based Interface
+### 🅿️ Parking Zone Monitoring
 
-Provides an easy-to-use interface for interacting with the prediction system.
+The system monitors parking availability across multiple zones.
 
-### ⚙️ Backend Processing
+The application is designed to train an ML model for **6 parking zones**.
 
-The backend handles prediction logic, data processing, and communication between the frontend and model.
+### 📈 24-Hour Forecast
 
-### 📈 Visualization
+Provides predicted parking availability for upcoming hours, including:
 
-Parking-related information can be presented through charts and visual elements to make results easier to understand.
+* Available spots
+* Occupied spots
+* Occupancy percentage
+* Parking status
 
-### ☁️ Deployment Ready
+### 🕐 Historical Analysis
 
-The project includes configuration files for cloud deployment, including Render-related configuration.
+Historical parking information can be analyzed using:
+
+* Timestamp
+* Available spaces
+* Occupancy percentage
+* Weather
+* Events
+
+### 🔮 Parking Predictor
+
+Users can provide:
+
+* Hour
+* Day of week
+* Weather condition
+* Special event
+
+The system then predicts parking availability.
+
+### 🧠 Machine Learning
+
+The application includes functionality for training an ML model to predict parking availability.
+
+---
 
 ## 🏗️ System Architecture
 
 ```text
-                 ┌───────────────────────┐
-                 │        User           │
-                 └───────────┬───────────┘
-                             │
-                             ▼
-                 ┌───────────────────────┐
-                 │     Frontend UI       │
-                 │ Parking Information   │
-                 └───────────┬───────────┘
-                             │
-                             ▼
-                 ┌───────────────────────┐
-                 │       Backend         │
-                 │   Data Processing     │
-                 └───────────┬───────────┘
-                             │
-                             ▼
-                 ┌───────────────────────┐
-                 │  Deep Learning Model  │
-                 │   Prediction Engine   │
-                 └───────────┬───────────┘
-                             │
-                             ▼
-                 ┌───────────────────────┐
-                 │ Parking Availability  │
-                 │      Prediction       │
-                 └───────────────────────┘
+              ┌──────────────────────┐
+              │        User          │
+              └──────────┬───────────┘
+                         │
+                         ▼
+              ┌──────────────────────┐
+              │     Web Dashboard    │
+              │  HTML/CSS/JavaScript │
+              └──────────┬───────────┘
+                         │
+                         ▼
+              ┌──────────────────────┐
+              │      Flask API       │
+              │       Backend        │
+              └──────────┬───────────┘
+                         │
+              ┌──────────┴───────────┐
+              ▼                      ▼
+     ┌─────────────────┐    ┌─────────────────┐
+     │ Parking Dataset │    │ ML Prediction   │
+     │ Historical Data │    │     Model       │
+     └─────────────────┘    └────────┬────────┘
+                                    │
+                                    ▼
+                         ┌────────────────────┐
+                         │ Parking Prediction │
+                         │ & Forecast Results │
+                         └────────────────────┘
 ```
+
+---
 
 ## 🛠️ Technologies Used
 
 ### Frontend
 
-* HTML
-* CSS
+* HTML5
+* CSS3
 * JavaScript
 * Chart.js
 
@@ -91,18 +201,22 @@ The project includes configuration files for cloud deployment, including Render-
 * Python
 * Flask
 
-### Machine Learning / Deep Learning
+### Machine Learning
 
-* Deep Learning
+* Machine Learning
 * Data preprocessing
 * Predictive modeling
+* Historical data analysis
 
 ### Deployment
 
 * Render
-* Gunicorn / Procfile
+* Gunicorn
+* Procfile
 
-The repository includes `chart.min.js`, `Procfile`, `render.yaml`, `requirements.txt`, `run.py`, and `runtime.txt` as part of the application/deployment setup.
+The GitHub repository contains separate `backend` and `frontend` folders along with deployment configuration such as `Procfile`, `render.yaml`, `requirements.txt`, `run.py`, and `runtime.txt`.
+
+---
 
 ## 📂 Project Structure
 
@@ -110,32 +224,62 @@ The repository includes `chart.min.js`, `Procfile`, `render.yaml`, `requirements
 Urban-Parking-Availability-Prediction/
 │
 ├── backend/
-│   └── Backend application and prediction logic
+│   ├── Application files
+│   └── ML / prediction logic
 │
 ├── frontend/
-│   └── Frontend interface
+│   ├── HTML files
+│   ├── CSS files
+│   └── JavaScript files
+│
+├── images/
+│   ├── dashboard.png
+│   ├── zones.png
+│   ├── forecast.png
+│   ├── history.png
+│   └── predictor.png
 │
 ├── chart.min.js
 ├── requirements.txt
 ├── Procfile
 ├── render.yaml
-├── runtime.txt
 ├── run.py
+├── runtime.txt
 ├── .gitignore
 └── README.md
 ```
 
+---
+
 ## ⚙️ How It Works
 
-1. Parking-related data is provided to the system.
-2. The backend receives and processes the input.
-3. Data is prepared for the prediction model.
-4. The Deep Learning model analyzes the relevant patterns.
-5. The system predicts parking availability.
-6. The prediction is displayed through the web interface.
-7. Visualizations can help users understand parking trends and availability.
+### Step 1 — Data Collection
 
-## 🚀 Installation & Setup
+Parking-related historical data is collected with information such as time, weather, events, and parking occupancy.
+
+### Step 2 — Data Processing
+
+The backend processes the input data and prepares it for the ML model.
+
+### Step 3 — Model Training
+
+The ML model learns patterns from historical parking data.
+
+### Step 4 — Prediction
+
+The model predicts parking availability based on user-provided conditions.
+
+### Step 5 — Forecast
+
+The system generates future parking availability forecasts.
+
+### Step 6 — Visualization
+
+Results are displayed through the web dashboard using charts, tables, and parking-status indicators.
+
+---
+
+## 🚀 Installation
 
 ### 1. Clone the Repository
 
@@ -143,27 +287,27 @@ Urban-Parking-Availability-Prediction/
 git clone https://github.com/nareshkumarpunganoor-crypto/Urban-Parking-Availability-Prediction.git
 ```
 
-### 2. Navigate to the Project
+### 2. Open the Project
 
 ```bash
 cd Urban-Parking-Availability-Prediction
 ```
 
-### 3. Create a Virtual Environment
+### 3. Create Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-### 4. Activate the Virtual Environment
+### 4. Activate Virtual Environment
 
-**Windows:**
+**Windows**
 
 ```bash
 venv\Scripts\activate
 ```
 
-**Linux / macOS:**
+**Linux / macOS**
 
 ```bash
 source venv/bin/activate
@@ -181,68 +325,102 @@ pip install -r requirements.txt
 python run.py
 ```
 
-Open the local URL displayed in the terminal to access the application.
+Open the local URL shown in the terminal.
 
-## 📊 Example Use Case
+---
 
-Consider a busy urban parking area during peak hours.
+## 🌐 Deployment
 
-The system can analyze parking-related information and provide an estimated availability status. Users can use this information to make better decisions about where and when to park.
+The application is deployed using **Render**.
 
-This can help:
+### Live Application
 
-* Reduce parking-search time.
-* Reduce unnecessary vehicle movement.
-* Improve parking-space utilization.
-* Support smart-city transportation systems.
+👉 **https://urban-parking-availability-prediction.onrender.com**
+
+### GitHub Repository
+
+👉 **https://github.com/nareshkumarpunganoor-crypto/Urban-Parking-Availability-Prediction**
+
+---
+
+## 📊 Prediction Inputs
+
+| Input            | Description                        |
+| ---------------- | ---------------------------------- |
+| 🕐 Hour          | Hour of the day                    |
+| 📅 Day           | Day of the week                    |
+| 🌤️ Weather      | Current/expected weather condition |
+| 🎪 Special Event | Whether an event is occurring      |
+| 🅿️ Zone         | Parking zone being analyzed        |
+
+---
+
+## 📈 Prediction Outputs
+
+The system can provide:
+
+* 🅿️ Available parking spaces
+* 🚗 Occupied parking spaces
+* 📊 Occupancy percentage
+* 🚦 Parking status
+* 📈 Future availability forecast
+* 🕐 Peak-hour information
+
+---
 
 ## 🌆 Applications
 
-The project can be applied to:
+This project can be used for:
 
-* Smart City Parking Systems
-* Shopping Mall Parking
-* Airport Parking
-* College and University Parking
-* Office Parking
-* Public Parking Areas
-* Urban Transportation Management
-* Intelligent Transportation Systems
+* Smart city parking
+* Shopping mall parking
+* Airport parking
+* College/university parking
+* Office parking
+* Public parking facilities
+* Urban transportation management
+* Intelligent transportation systems
+
+---
 
 ## 🔮 Future Enhancements
 
-* 📍 Integrate GPS and interactive maps.
-* 📷 Add real-time CCTV-based parking detection.
-* 🧠 Improve prediction using advanced Deep Learning models.
-* 📱 Develop a mobile application.
-* 🔔 Add notifications when parking availability changes.
-* 🅿️ Add real-time parking-slot occupancy detection.
-* 🗺️ Recommend the nearest available parking area.
-* 📊 Add advanced analytics and historical dashboards.
-* ☁️ Integrate cloud databases for real-time parking data.
-* 🚗 Add vehicle-entry and exit tracking.
+* 📍 GPS-based nearest parking recommendation
+* 📷 Real-time CCTV parking detection
+* 📱 Android/iOS mobile application
+* 🔔 Parking availability notifications
+* 🗺️ Interactive parking map
+* 🚗 Automatic parking-slot detection
+* 🤖 Advanced Deep Learning models
+* ☁️ Real-time cloud database
+* 📊 Advanced analytics dashboard
+* 🚦 Integration with smart-city traffic systems
 
-## 🌟 Advantages
-
-* Reduces parking-search time.
-* Supports intelligent parking management.
-* Improves utilization of available parking spaces.
-* Provides data-driven predictions.
-* Can be extended to real-time smart-city applications.
-* Provides a foundation for AI-based urban mobility solutions.
+---
 
 ## 👨‍💻 Author
 
-**Naresh Kumar Punganoor**
+### Naresh Kumar Punganoor
 
-B.Tech – Artificial Intelligence & Data Science
+**B.Tech – Artificial Intelligence & Data Science**
 
-## ⭐ GitHub Repository
+Interested in **Data Analytics, Machine Learning, Artificial Intelligence, and Smart City Applications**.
 
-If you find this project useful, consider giving the repository a ⭐.
+---
 
-**Repository:**
+## ⭐ Support
+
+If you find this project useful, please consider giving the repository a ⭐ on GitHub.
+
+### 🔗 Project Links
+
+**Live Demo:**
+https://urban-parking-availability-prediction.onrender.com
+
+**GitHub Repository:**
 https://github.com/nareshkumarpunganoor-crypto/Urban-Parking-Availability-Prediction
+
+---
 
 ## 📜 License
 
