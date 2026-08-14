@@ -7,7 +7,7 @@ import sys
 import traceback
 import numpy as np
 from datetime import datetime, timedelta
-from flask      import Flask, jsonify, request, send_from_directory
+from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 
 BACKEND_DIR  = os.path.dirname(os.path.abspath(__file__))
@@ -23,6 +23,9 @@ from model import ParkingModel, ZONES, _get_status
 
 app = Flask(__name__, static_folder=FRONTEND_DIR, static_url_path="")
 CORS(app)
+
+print(f"Frontend folder: {FRONTEND_DIR}")
+print(f"Frontend exists: {os.path.exists(FRONTEND_DIR)}")
 
 if not os.path.exists(DATA_FILE):
     print("Generating parking data...")
@@ -292,12 +295,6 @@ def api_zones():
 
 # ── Main ───────────────────────────────────
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    print("\n============================")
-    print("  Parking Prediction API")
-    print("============================")
-    print(f"Model ready : {MODEL_READY}")
-    print(f"Data rows   : {len(df)}")
-    print(f"URL         : http://localhost:{port}")
-    print("============================\n")
-    app.run(debug=True, host="0.0.0.0", port=port)
+    port = int(os.environ.get("PORT", 10000))
+    print(f"Starting on port {port}")
+    app.run(debug=False, host="0.0.0.0", port=port)
